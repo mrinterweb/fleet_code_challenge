@@ -1,3 +1,17 @@
+Implementation Notes
+====================
+
+To import the data run the following rake tasks:
+
+    rake import:service_providers\[service_provider_data.csv\]
+    rake import:rates\[rate_data.csv\]
+
+Note: some of the rates fail as the service provider id does not match with one provided
+
+
+Original Exercise
+=================
+
 Congratulations on moving forward in the interview process! We'd like you to build a bare-bones Rails application with a few key components to demonstrate proficiency in many common Ruby and Rails patterns, which you'll find yourself using day-to-day here.
 
 We expect this exercise to take 2-3 hours at the most. Since this is a backend-focused challenge, we are not looking for styling or CSS work. And, don't concern yourself with configuring everything perfectly. This is just an exercise, so if you don't need to tweak something in order to meet the criteria below, leave it at defaults.
