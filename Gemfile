@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'money-rails'
 gem 'jsonapi-resources', git: 'https://github.com/cerebris/jsonapi-resources.git'
+gem 'webpacker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
