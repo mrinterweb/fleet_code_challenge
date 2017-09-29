@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       jsonapi_resources :service_providers
     end
   end
+
+  root 'pages#home'
 end
