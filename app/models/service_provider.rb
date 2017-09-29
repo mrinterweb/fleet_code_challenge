@@ -1,6 +1,8 @@
 class ServiceProvider < ApplicationRecord
   before_save :set_flat_rate_usd
 
+  has_many :rates
+
   monetize :flat_rate_cents
   monetize :flat_rate_usd_cents
 

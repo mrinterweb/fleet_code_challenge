@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe ServiceProvider, type: :model do
+  include_context 'common'
+
   describe "on create" do
-    subject { create(:service_provider, flat_rate: Money.new(1500, 'EUR')) }
+    subject { service_provider }
 
     it 'automatically sets flat_rate_usd' do
       expect(subject.flat_rate.currency).to eq Money::Currency.new('EUR')
