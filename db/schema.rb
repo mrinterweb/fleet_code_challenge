@@ -17,12 +17,11 @@ ActiveRecord::Schema.define(version: 20170928232252) do
 
   create_table "service_providers", force: :cascade do |t|
     t.string "name"
-    t.float "flat_rate"
-    t.float "currency"
-    t.float "flat_rate_usd"
+    t.integer "flat_rate_cents", default: 0, null: false
+    t.string "flat_rate_currency", default: "USD", null: false
+    t.integer "flat_rate_usd_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["flat_rate_usd"], name: "index_service_providers_on_flat_rate_usd"
   end
 
 end

@@ -4,7 +4,7 @@ MoneyRails.configure do |config|
 
   # To set the default currency
   #
-  # config.default_currency = :usd
+  config.default_currency = :usd
 
   # Set default bank object
   #
@@ -17,6 +17,8 @@ MoneyRails.configure do |config|
   # Example:
   # config.add_rate "USD", "CAD", 1.24515
   # config.add_rate "CAD", "USD", 0.803115
+  config.add_rate 'EUR', 'USD', 1.18115
+  config.add_rate 'USD', 'EUR', 0.84663
 
   # To handle the inclusion of validations for monetized fields
   # The default value is true
