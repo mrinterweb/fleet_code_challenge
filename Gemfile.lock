@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/cerebris/jsonapi-resources.git
+  revision: 19f4d7b59f92b05fa28c4f925391cf5998123308
+  specs:
+    jsonapi-resources (0.10.0.pre)
+      activerecord (>= 4.1)
+      concurrent-ruby
+      railties (>= 4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -174,7 +183,7 @@ GEM
     rspec-mocks (3.6.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
-    rspec-rails (3.6.0)
+    rspec-rails (3.6.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -240,6 +249,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   jbuilder (~> 2.5)
+  jsonapi-resources!
   listen (>= 3.0.5, < 3.2)
   money-rails
   pg (~> 0.18)
