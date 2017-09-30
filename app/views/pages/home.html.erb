@@ -2,8 +2,12 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 <%= javascript_pack_tag 'root' %>
 <%= stylesheet_pack_tag 'root' %>
+<script>
+  document.availableOrigins = <%= @rates.map(&:origin).uniq.sort.to_json.html_safe %>
+  document.availableDestinations = <%= @rates.map(&:destination).uniq.sort.to_json.html_safe %>
+</script>
+
 
 <div id="app-root">
-  {{ message }}
   <app></app>
 </div>

@@ -1,15 +1,94 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <label>Origin</label>
+    <select v-model="selectedOrigin">
+      <option></option>
+      <option v-for="option in availableOrigins" v-bind:value="option">{{option}}</option>
+    </select>
+
+    <label>Destination</label>
+    <select v-model="selectedDestination">
+      <option></option>
+      <option v-for="option in availableDestinations" v-bind:value="option">{{option}}</option>
+    </select>
+
+    <table>
+      <thead>
+        <tr>
+          <th>destination</th>
+          <th>flat-rate</th>
+          <th>flat-rate-currency</th>
+          <th>id</th>
+          <th>name</th>
+          <th>origin</th>
+          <th>rate</th>
+          <th>serviceProviderId</th>
+          <th>updated-at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <row v-for="rate in rates" :rate="rate"></row>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
+import ApplicationAdapter from './adapters/application';
+import Row from './components/row';
+
 export default {
-  data: function () {
+  data() {
     return {
-      message: "Hello Vue!"
+      selectedOrigin: null,
+      selectedDestination: null
     }
+  },
+  components: { Row },
+  computed: {
+    availableOrigins() {
+      return document.availableOrigins;
+    },
+    availableDestinations() {
+      return document.availableDestinations;
+    },
+    rates() {
+      return this.$store.state.rates;
+    }
+  },
+  methods: {
+    updateRates() {
+      let options = {
+        query: {
+          include: 'service-provider'
+        }
+      };
+      if (this.selectedOrigin && this.selectedDestination) {
+        options.query.filter = {
+          origin: this.selectedOrigin,
+          destination: this.selectedDestination
+        };
+      }
+
+      new ApplicationAdapter().get(options).then((results) => {
+        console.log(JSON.stringify(results))
+        this.$store.dispatch('UPDATE_RATES', results)
+      }).catch((error) => {
+        debugger;
+        console.error('whoopsie')
+      })
+    }
+  },
+  watch: {
+    selectedOrigin() {
+      this.updateRates()
+    },
+    selectedDestination() {
+      this.updateRates();
+    }
+  },
+  mounted() {
+    this.updateRates();
   }
 }
 </script>
