@@ -6,6 +6,7 @@ RSpec.describe "Api::V1::ServiceProviders", type: :request do
   describe "GET" do
     let(:expected_id) { service_provider.id }
     let(:expected_type) { 'service-providers' }
+    let(:expected_count) { 1 }
     include_context 'jsonapi GET'
   end
 end

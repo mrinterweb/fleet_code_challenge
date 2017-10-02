@@ -21,7 +21,7 @@ RSpec.shared_context 'jsonapi GET' do
 
   it 'returns expected data' do
     expect(parsed).to have_key('data')
-    expect(parsed['data'].length).to be 1
+    expect(parsed['data'].length).to be expected_count
     first = parsed['data'].first
     expect(first['id']).to eq expected_id.to_s
     expect(first['type']).to eq expected_type
