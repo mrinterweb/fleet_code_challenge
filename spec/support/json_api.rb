@@ -5,7 +5,6 @@ RSpec.shared_context 'jsonapi common' do
 end
 
 RSpec.shared_context 'jsonapi GET' do
-  include_context 'common'
   include_context 'jsonapi common'
 
   before do

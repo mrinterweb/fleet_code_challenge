@@ -3,6 +3,6 @@ class Api::V1::ServiceProviderResource < JSONAPI::Resource
   has_many :rates
 
   def flat_rate
-    @model.flat_rate
+    @model.flat_rate.format
   end
 end

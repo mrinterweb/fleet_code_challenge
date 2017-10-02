@@ -11,4 +11,8 @@ class Api::V1::RateResource < JSONAPI::Resource
   def rate_usd
     @model.rate_usd.format
   end
+
+  def self.default_sort
+    [{ field: 'rate_usd_cents', direction: :asc }]
+  end
 end
