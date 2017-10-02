@@ -60,14 +60,15 @@ export default {
     updateRates() {
       let options = {
         query: {
-          include: 'service-provider'
+          include: 'service-provider',
+          filter: {}
         }
       };
-      if (this.selectedOrigin && this.selectedDestination) {
-        options.query.filter = {
-          origin: this.selectedOrigin,
-          destination: this.selectedDestination
-        };
+      if (this.selectedOrigin) {
+        options.query.filter.origin = this.selectedOrigin;
+      }
+      if (this.selectedDestination) {
+        options.query.filter.destination = this.selectedDestination;
       }
 
       new ApplicationAdapter().get(options).then((results) => {

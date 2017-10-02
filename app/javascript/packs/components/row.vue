@@ -52,7 +52,6 @@ export default {
         console.log(JSON.stringify(results));
         let index = _.findIndex(this.$store.state.rates, { id: results.data.id });
         this.$store.commit('UPDATE_RATE', { index: index, data: results.data.attributes });
-        // alert('record saved'); // yuck
       });
     }
   },
