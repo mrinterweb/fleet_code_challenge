@@ -15,15 +15,15 @@
     <table>
       <thead>
         <tr>
-          <th>destination</th>
-          <th>flat-rate</th>
-          <th>flat-rate-currency</th>
-          <th>id</th>
-          <th>name</th>
-          <th>origin</th>
-          <th>rate</th>
-          <th>serviceProviderId</th>
-          <th>updated-at</th>
+          <th>Origin Country</th>
+          <th>Destination Country</th>
+          <th>Flat Rate</th>
+          <th>Currency</th>
+          <th>Name</th>
+          <th>Rate</th>
+          <th>Rate USD</th>
+          <th>Updated At</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -71,7 +71,7 @@ export default {
       }
 
       new ApplicationAdapter().get(options).then((results) => {
-        console.log(JSON.stringify(results))
+        // console.log(JSON.stringify(results))
         this.$store.dispatch('UPDATE_RATES', results)
       }).catch((error) => {
         debugger;
