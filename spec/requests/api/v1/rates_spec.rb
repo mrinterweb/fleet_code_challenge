@@ -8,6 +8,20 @@ RSpec.describe "Api::V1::Rates", type: :request do
     let(:expected_type) { 'rates' }
     include_context 'jsonapi GET'
 
+    describe 'attributes' do
+      let(:rate) { create :rate, rate: Money.new(100_00, 'EUR'), service_provider: service_provider }
+
+      fit 'has a rate attribute that is properly formatted' do
+        expect(attributes).to have_key('rate')
+        expect(attributes['rate']).to eq '€100.00'
+      end
+
+      it 'has a common usd rate' do
+        expect(attributes).to have_key('rate-usd')
+        expect(attributes['rate-usd']).to eq '$118.12'
+      end
+    end
+
     context 'filter origin and destination' do
       let(:base_url) { super() + "?filter[origin]=#{rate.origin}&filter[destination]=#{rate.destination}" }
       include_context 'jsonapi GET'

@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(version: 20170929055337) do
   enable_extension "plpgsql"
 
   create_table "rates", force: :cascade do |t|
-    t.integer "rate", null: false
+    t.integer "rate_cents", default: 0, null: false
+    t.string "rate_currency", default: "USD", null: false
+    t.integer "rate_usd_cents", default: 0, null: false
     t.string "origin", limit: 2, null: false
     t.string "destination", limit: 2, null: false
     t.bigint "service_provider_id"

@@ -1,5 +1,5 @@
 class ServiceProvider < ApplicationRecord
-  before_save :set_flat_rate_usd
+  before_save :set_common_usd
 
   has_many :rates
 
@@ -10,7 +10,7 @@ class ServiceProvider < ApplicationRecord
 
   private
 
-  def set_flat_rate_usd
+  def set_common_usd
     self.flat_rate_usd = flat_rate.as_us_dollar
   end
 end

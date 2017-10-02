@@ -1,6 +1,7 @@
 RSpec.shared_context 'jsonapi common' do
   let(:parsed) { JSON.parse(response.body) }
   let(:data) { parsed['data'] }
+  let(:attributes) { data.first['attributes'] }
 end
 
 RSpec.shared_context 'jsonapi GET' do
