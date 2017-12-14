@@ -1,13 +1,16 @@
 Implementation Notes
 ====================
 
+Demo app:
+
+https://fleet-rate-demo.herokuapp.com/
+
 To import the data run the following rake tasks:
 
     rake import:service_providers\[service_provider_data.csv\]
     rake import:rates\[rate_data.csv\]
 
-Note: some of the rates fail as the service provider id does not match with one provided
-
+Note: some of the rate data does not match with a service provider, and that rate data can not be imported. The rate entries in question have a "shipping company id" of 0. In total, 12 rate records failed.
 
 Original Exercise
 =================
